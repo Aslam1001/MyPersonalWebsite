@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Cable Delay Measurement</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="assets/img/icons/IoT.jfif" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <!-- <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css"> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="js/scripts.js"></script>
+    <link href="css/style.css" rel="stylesheet" />
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-primary fixed-top">
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav my-2 my-lg-0">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false" style="font-size:1.5rem">
+                        Topics Covered
+                    </button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Arduino</a>
+                        <a class="dropdown-item" href="#">WS2812 LED Strip</a>
+                        <a class="dropdown-item" href="#">Arduino Ethernet Shield</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Practicle Demo</a>
+                    </div>
+                </div>
+                <li class="nav-item">
+                    <a class="nav-link" style="color:floralwhite;" href="index.html">HOME</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="color:floralwhite" href="#about">ABOUT</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="color:floralwhite" href="#category">CATEGORY</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="color:floralwhite" href="#portfolio">PORTFOLIO</a>
+                </li>
+                <!-- <div class="btn-group">
+                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        PROJECTS
+                    </button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">NTD with LED Strip and Arduino</a>
+                        <a class="dropdown-item" href="#">PLC Demo</a>
+                        <a class="dropdown-item" href="#">Interfacing induction motor with PLC</a>
+                    </div>
+                </div> -->
+                <li class="nav-item">
+                    <a class="nav-link" style="color:floralwhite;" href="#contact">CONTACT</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container justify-content-center"
+        style="padding: 5% 0% 0% 0%; font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-style: italic;">
+        <br><br>
+        <h1 class="text-center" style="color:orchid">Cable Delay Measurement Using Time Interval Counter (TIC)</h1><br>
+        <div class="row">
+            <div class="col-md-2" style="border: solid;">
+                <nav class="navbar navbar-dark">
+                    <ul class="navbar-nav">
+                        <h2 style="color:forestgreen;"><strong>Index:</strong></h2>
+                        <li>
+                            <a class="nav-link" style="color:blue;" href="#">Coaxial Cable</a>
+                        </li>
+                        <li>
+                            <a class="nav-link" style="color:blue;" href="#">Delay in Coaxial Cable</a>
+                        </li>
+                        <li>
+                            <a class="nav-link" style="color:blue;" href="#">What is Time Interval Measurement</a>
+                        </li>
+                        <li>
+                            <a class="nav-link" style="color:blue;" href="#">What is Time Interval Counter</a>
+                        </li>
+                        <li>
+                            <a class="nav-link" style="color:blue;" href="#">How Delay Measurement Works</a>
+                        </li>
+                        <li>
+                            <a class="nav-link" style="color:blue;" href="#">How to use TIC for Cable Delay
+                                Measurement</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="col-md-10" style="border: solid;">
+                <h2><strong>Introduction</strong></h2>
+                <p>Whenever electrical signal pases through a cable then it faces some interferences in the cable due to
+                    which signal can be lag, this is called propagation delay and it has to be calculated to incooperate
+                    in the final reading.</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

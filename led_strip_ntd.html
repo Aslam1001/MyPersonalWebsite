@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Network Time Display</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" type="image/x-icon" href="assets/img/icons/IoT.jfif" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <!-- <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css"> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="js/scripts.js"></script>
+    <link href="css/style.css" rel="stylesheet" />
+</head>
+<style>
+    table,
+    th,
+    td {
+        border: 1px solid black;
+    }
+</style>
+
+<body class="container-fluid"
+    style=" font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-style: italic; font-size:medium;">
+    <nav class="navbar navbar-expand-md navbar-dark bg-primary fixed-top">
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav my-2 my-lg-0">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false" style="font-size:1.5rem">
+                        Topics Covered
+                    </button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Arduino</a>
+                        <a class="dropdown-item" href="#">WS2812 LED Strip</a>
+                        <a class="dropdown-item" href="#">Arduino Ethernet Shield</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Practicle Demo</a>
+                    </div>
+                </div>
+                <li class="nav-item">
+                    <a class="nav-link" style="color:floralwhite;" href="index.html">HOME</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="color:floralwhite" href="#about">ABOUT</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="color:floralwhite" href="#category">CATEGORY</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="color:floralwhite" href="#portfolio">PORTFOLIO</a>
+                </li>
+                <!-- <div class="btn-group">
+                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        PROJECTS
+                    </button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">NTD with LED Strip and Arduino</a>
+                        <a class="dropdown-item" href="#">PLC Demo</a>
+                        <a class="dropdown-item" href="#">Interfacing induction motor with PLC</a>
+                    </div>
+                </div> -->
+                <li class="nav-item">
+                    <a class="nav-link" style="color:floralwhite;" href="#contact">CONTACT</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container justify-content-center"
+        style="padding: 5% 0% 0% 0%; font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-style: italic;">
+        <br><br>
+        <h1 class="text-center" style="color:orchid">Making <u>Network Time Display</u> using Arduino and ws2812 LED
+            Strip</h1><br>
+        <div class="row">
+            <div class="col-md-2" style="border: solid;">
+                <nav class="navbar navbar-dark">
+                    <ul class="navbar-nav">
+                        <h2 style="color:forestgreen;"><strong>Index:</strong></h2>
+                        <li>
+                            <a class="nav-link" style="color:blue;" href="#">What is ws2818</a>
+                        </li>
+                        <li>
+                            <a class="nav-link" style="color:blue;" href="#">Working of ws2812</a>
+                        </li>
+                        <li>
+                            <a class="nav-link" style="color:blue;" href="#">What we need</a>
+                        </li>
+                        <li>
+                            <a class="nav-link" style="color:blue;" href="#">Designing of the ASCII Display</a>
+                        </li>
+                        <li>
+                            <a class="nav-link" style="color:blue;" href="#">Interfacing with Arduino</a>
+                        </li>
+                        <li>
+                            <a class="nav-link" style="color:blue;" href="#">Working Model</a>
+                        </li>
+                        <li>
+                            <a class="nav-link" style="color:blue;" href="#">Implementing Arduino Code</a>
+                        </li>
+                        <li>
+                            <a class="nav-link" style="color:blue;" href="#">Practical demo</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="col-md-10" style="border: solid;">
+                <h2><strong>Introduction</strong></h2>
+                <p>In this project we will develop an NTD which stands for <strong>Network Time Display</strong> and we
+                    will use it to display the time which is fetched from the NTP. <br>NTP stands for <strong>Network
+                        Time Protocol</strong> which is used to brodcast the time to the networked devices connected on
+                    the internet. IP address and fixed port <u>123</u> is used to brodcast the NTP time. NTP is mainly
+                    used to sychronise the time of the network devices, as the local time of the network devices which
+                    is derived from its internal clock or oscillator drifts over the time.<br><br>So in This project we
+                    will first make our <strong>ASCII display</strong> using <strong>WS2812 LED Strips</strong> which
+                    will display all alphanumeric characters, Then We will interface this Display with
+                    <strong>Arduino</strong>, and then finaly with the help of <strong>Arduino Ethernet Shield</strong>
+                    we will get time from the NTP and will display it on the ASCII Display.
+                </p>
+            </div>
+        </div>
+        <div class="justify-content-center" style="padding: 5% 0% 0% 0%;">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 style="color:blue;"><strong><u>What is ws2812?</u></strong></h2>
+                    <p>WS2812 is an intelligent control LED light source. The control circuit and RGB chips are in a
+                        package
+                        of 5050 components.
+                        <br>The data transfer protocol use single NZR communication mode. After the pixel power-on
+                        reset,
+                        the DIN port receive data from controller, the first pixel collect initial 24bit data then sent
+                        to
+                        the
+                        internal data latch, the other data which reshaping by the internal signal reshaping
+                        amplification
+                        circuit sent to the next cascade pixel through the DO port
+                    </p><br><strong>Note:</strong> 5050 means 5.0mm width and 5.0mm length. Other package includes 2835
+                    means 2.8mm width and 3.5mm length.<br><br>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <h4>The Pinout of ws2812</h4>
+                <div class="col-md-4">
+                    <img class="img-responsive" src="assets/img//led_strip_ard/1.jpg" width="80%" height="80%">
+                </div>
+                <div class="col-md-8">
+                    <table style="width:70%; margin: 5% 0% 5% 0%;">
+                        <tr>
+                            <th>NO</th>
+                            <th>Symbol</th>
+                            <th>Function description </th>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>DOUT</td>
+                            <td>Control data signal output </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>DIN</td>
+                            <td>Control data signal input</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>VCC</td>
+                            <td>Power supply control circuit</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>NC</td>
+                            <td>Not connected</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>VDD</td>
+                            <td>Power supply LED</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>VSS</td>
+                            <td>Ground</td>
+                        </tr>
+                    </table>
+                    <!-- <img class="img-responsive" src="assets/img//led_strip_ard/2.jpg" width="40%" height="60%"> -->
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 style="color:blue;"><strong><u>Working of ws2818</u></strong></h2>
+                    <p>Every pixel of ws2812 is connected in cascaded manner as shown below.<br><br>
+                        <img class="img-responsive" src="assets/img//led_strip_ard/6.jpg" width="40%" height="60%">
+                        Each pixel contains a controller circuit and RGB chip. Controller circuit of each pixel latches
+                        24 bit of the binary data for each RED, GREEN and BLUE LEDs. First 8 bit is to for GREEN, next 8
+                        bit is for RED and last 8 bit is for BLUE. As shown below<br><br><img class="img-responsive"
+                            src="assets/img//led_strip_ard/5.jpg" width="80%" height="40%">
+                    <ul>For white light:
+                        <li>G=255, 0b11111111</li>
+                        <li>R=255, 0b11111111</li>
+                        <li>B=255, 0b11111111</li>
+                    </ul>
+                    MCU will transmit 11111111-11111111-11111111<br>
+                    MCU (Arduino) sends bit of stream to D1 then first pixel latches first 24 bit of the data and rest
+                    is pass to second pixel then second pixel latches second 24 bit of data and rest is pass to the
+                    third pixel and so on.<br><br>
+                    ws2812 follows some bit width rule for 0 and 1 as shown below
+                    <div class="row justify-content-center">
+                        <div class="col-md-4">
+                            <img class="img-responsive" src="assets/img//led_strip_ard/3.jpg" width="80%" height="40%">
+                        </div>
+                        <div class="col-md-8">
+                            <table style="width:70%; margin: 5% 0% 5% 0%;">
+                                <tr>
+                                    <th>T0H</th>
+                                    <th>0 code ,high voltage time</th>
+                                    <th>0.4us</th>
+                                    <th>±150ns</th>
+                                </tr>
+                                <tr>
+                                    <td>T1H</td>
+                                    <td>1 code ,high voltage time</td>
+                                    <td>0.8us </td>
+                                    <th>±150ns</th>
+                                </tr>
+                                <tr>
+                                    <td>T0L</td>
+                                    <td>0 code , low voltage time</td>
+                                    <td>0.85us</td>
+                                    <th>±150ns</th>
+                                </tr>
+                                <tr>
+                                    <td>T1L</td>
+                                    <td>1 code ,low voltage time</td>
+                                    <td>0.45us</td>
+                                    <th>±150ns</th>
+                                </tr>
+                                <tr>
+                                    <td>RES</td>
+                                    <td>low voltage time</td>
+                                    <td>Above 50µs</td>
+                                    <th></th>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 style="color:blue;"><strong><u>What we need</u></strong></h2>
+                    <ul>
+                        <li>WS2812 LED Strip</li>
+                        <li>Arduino Uno/Mega</li>
+                        <li>Arduino Ethernet Shield</li>
+                        <li>Bread Board</li>
+                        <li>Jumper Wires</li>
+                        <li>Cello Tape</li>
+                        <li>Card Board Sheet</li>
+                        <li>External Power Supply 5V, 1A-2A</li>
+                        <li>LAN Cable</li>
+                        <li>Arduino IDE</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 style="color:blue;"><strong><u>Designing of the ASCII Display</u></strong></h2>
+                    <p>I used single (Without Cutting) ws2812 LED Strip of 300 LEDs to make a 60x5 ASCII Display. A
+                        Single LED Strip is twisted in a such a way that it can form a 60x5 Display.
+                        <img><br>Then with the help of Cello tape and other accessories I finally placed this dispaly on
+                        the cardboard sheet.
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 style="color:blue;"><strong><u>Pinout Diagram</u></strong></h2>
+                    <p>Below is the pinout diagram to connect the ASCII display to the Arduino uno
+                        <img class="img-responsive" src="assets/img//led_strip_ard/7.jpg" width="50%" height="30%">
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 style="color:blue;"><strong><u>Working of the System</u></strong></h2>
+                    <p></p>
+
+                </div>
+            </div>
+        </div>
+</body>
+
+</html>
